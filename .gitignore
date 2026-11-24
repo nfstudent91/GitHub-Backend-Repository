@@ -1,0 +1,124 @@
+# Dependencies and package manager files
+node_modules/
+.pnp
+.pnp.js
+.npm/
+.yarn-integrity
+/yarn.lock
+*.tgz
+
+# Build output and caches
+dist/
+build/
+.next/
+out/
+.nuxt/
+*.tsbuildinfo
+.cache/
+.parcel-cache/
+.eslintcache
+.node_repl_history
+
+# Environment files and local configuration
+.env*
+!.env.sample
+config.local.json
+settings.local.json
+ecosystem.config.js
+
+# Logs and runtime files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Uploads and local data
+uploads/
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# Generated migration and seed JavaScript
+src/migrations/*.js
+src/seeds/*.js
+
+# Coverage and test output
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Local documentation and office files
+AUTHENTICATION.md
+TEST_API.md
+QUICK_START.md
+DATABASE_ARCHITECTURE.md
+API_DOCUMENTATION.md
+AUTH_TEST_GUIDE.md
+AUTHENTICATION_SUMMARY.md
+*.xlsx
+*.xls
+*.doc
+*.docx
+*.ppt
+*.pptx
+
+# Temporary files and local backups
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+/cls
+/q
+
+# Editors and IDEs
+.vscode/
+.idea/
+.history/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+*.iml
+*.iws
+*.ipr
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Operating system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.directory
+.Trash-*
