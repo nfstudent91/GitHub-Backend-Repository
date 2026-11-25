@@ -80,7 +80,22 @@ jobs:
             --src-path backend.zip \
             --type zip \
             --clean true \
-            --restart true
+            --restart true \
+            --track-status false
+
+      - name: Verify DEV Backend
+        run: |
+          for i in {1..30}; do
+            STATUS=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" https://dev-backendapp-crm.azurewebsites.net/ || true)
+            echo "HTTP Status: $STATUS"
+            if [[ "$STATUS" == "200" || "$STATUS" == "404" ]]; then
+              echo "DEV Backend is responding"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "DEV Backend failed verification"
+          exit 1
 
   # STAGE 3 - UAT
   UAT:
@@ -113,7 +128,22 @@ jobs:
             --src-path backend.zip \
             --type zip \
             --clean true \
-            --restart true
+            --restart true \
+            --track-status false
+
+      - name: Verify UAT Backend
+        run: |
+          for i in {1..30}; do
+            STATUS=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" https://uat-backendapp-crm.azurewebsites.net/ || true)
+            echo "HTTP Status: $STATUS"
+            if [[ "$STATUS" == "200" || "$STATUS" == "404" ]]; then
+              echo "UAT Backend is responding"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "UAT Backend failed verification"
+          exit 1
 
   # STAGE 4 - PROD
   PROD:
@@ -146,4 +176,19 @@ jobs:
             --src-path backend.zip \
             --type zip \
             --clean true \
-            --restart true
+            --restart true \
+            --track-status false
+
+      - name: Verify PROD Backend
+        run: |
+          for i in {1..30}; do
+            STATUS=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" https://prod-backendapp-crm.azurewebsites.net/ || true)
+            echo "HTTP Status: $STATUS"
+            if [[ "$STATUS" == "200" || "$STATUS" == "404" ]]; then
+              echo "PROD Backend is responding"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "PROD Backend failed verification"
+          exit 1
